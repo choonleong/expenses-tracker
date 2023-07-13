@@ -5,7 +5,6 @@ const Home = () => {
   return (
     <>
       <Components.NavBar />
-      <Components.LoadSpinner />
     </>
   );
 };

@@ -1,18 +1,10 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
+import "antd/dist/reset.css";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div>Wow this is the first router</div>,
-  },
-]);
+import NavBar from "./components/NavBar/NavBar";
 
-function App() {
-  return <RouterProvider router={router} />;
-}
+const App = () => {
+  return <NavBar />;
+};
 
 export default App;

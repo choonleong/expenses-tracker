@@ -1,7 +1,7 @@
 import React from "react";
 import { Spin } from "antd";
 
-const Spinner = () => {
+const LoadSpinner = () => {
   return (
     <div className="spinner">
       <Spin color="gray" style={{ color: "gray" }} size="large" />
@@ -9,4 +9,4 @@ const Spinner = () => {
   );
 };
 
-export default Spinner;
+export default LoadSpinner;

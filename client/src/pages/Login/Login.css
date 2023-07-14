@@ -5,11 +5,37 @@
   justify-content: center;
   background-image: linear-gradient(to right, #7852a7 0%, #4fd64a 100%);
 }
+
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper-horizontal-form {
+  width: 40vw;
+  margin-right: 20px;
+}
+
+.wrapper-horizontal-lottie {
+  width: 40vw;
+  margin-left: 20px;
+}
+
+.register-submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .lottie {
   height: 400px;
 }
 
-.register input {
+.login input {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.784);
@@ -27,7 +53,7 @@ a {
   color: rgba(255, 255, 255, 0.536) !important;
 }
 
-.register h1 {
+.login h1 {
   font-size: 35px;
   color: white;
   font-weight: 600;

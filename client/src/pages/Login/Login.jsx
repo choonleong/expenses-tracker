@@ -9,11 +9,10 @@ const Login = () => {
   return (
     <div className="login">
       {/* {loading && <Spinner />} */}
-      <div className="row justify-content-center align-items-center w-100 h-100">
-        <div className="col-md-4">
+      <div className="wrapper">
+        <div className="wrapper-horizontal-form">
           <Form layout="vertical">
             <h1>Login</h1>
-
             <Form.Item label="Email" name="email">
               <Input />
             </Form.Item>
@@ -21,15 +20,17 @@ const Login = () => {
               <Input type="password" />
             </Form.Item>
 
-            <div className="d-flex justify-content-between align-items-center">
-              <h1>Not Registered Yet , Click Here To Register</h1>
+            <div className="register-submit">
+              <h4>
+                Not Registered Yet? <br></br> Click Here To Register
+              </h4>
               <button className="secondary" type="submit">
                 LOGIN
               </button>
             </div>
           </Form>
         </div>
-        <div className="col-md-5">
+        <div className="wrapper-horizontal-lottie">
           <div className="lottie">
             <lottie-player
               //   src="https://assets3.lottiefiles.com/packages/lf20_06a6pf9i.json"

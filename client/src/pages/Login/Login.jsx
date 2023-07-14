@@ -11,7 +11,7 @@ const Login = () => {
     <div className="login">
       {/* {loading && <Spinner />} */}
       <div className="wrapper">
-        <div className="wrapper-horizontal-form">
+        <div className="wrapper-form">
           <Form layout="vertical">
             <h1>Login</h1>
             <Form.Item label="Email" name="email">
@@ -23,7 +23,7 @@ const Login = () => {
 
             <div className="register-submit">
               <h4>
-                Not Registered Yet? <br></br> Click Here To
+                Not Registered Yet? <br></br> Click Here To <span></span>
                 <Link to="/registration">Register</Link>
               </h4>
               <button className="secondary" type="submit">
@@ -32,7 +32,7 @@ const Login = () => {
             </div>
           </Form>
         </div>
-        <div className="wrapper-horizontal-lottie">
+        <div className="wrapper-lottie">
           <div className="lottie">
             <lottie-player
               //   src="https://assets3.lottiefiles.com/packages/lf20_06a6pf9i.json"

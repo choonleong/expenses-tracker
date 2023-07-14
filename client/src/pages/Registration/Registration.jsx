@@ -1,15 +1,16 @@
 import React from "react";
 import Input from "antd/lib/input/Input";
 import { Form } from "antd";
+import { Link } from "react-router-dom";
 import "./Registration.css";
-// import LoadSpinner from "../components/LoadSpinner/LoadSpinner";
+import "@lottiefiles/lottie-player";
 
 const Registration = () => {
   return (
-    <div className="register">
+    <div className="registration">
       {/* {loading && <Spinner />} */}
-      <div className="row justify-content-center align-items-center w-100 h-100">
-        <div className="col-md-5">
+      <div className="wrapper">
+        <div className="wrapper-lottie">
           <div className="lottie">
             <lottie-player
               src="https://lottie.host/796e8af4-d9dd-43b3-b692-d7c344e919ac/UGCQhy8BcH.json"
@@ -20,9 +21,9 @@ const Registration = () => {
             ></lottie-player>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="wrapper-form">
           <Form layout="vertical">
-            <h1>REGISTER</h1>
+            <h1>Account Registration</h1>
 
             <Form.Item label="Name" name="name">
               <Input />
@@ -34,8 +35,11 @@ const Registration = () => {
               <Input type="password" />
             </Form.Item>
 
-            <div className="d-flex justify-content-between align-items-center">
-              <h1>Already Registered , Click Here To Login</h1>
+            <div className="register-submit">
+              <h4>
+                Already Registered? <br></br> Click Here To <span></span>
+                <Link to="/">Login</Link>
+              </h4>
               <button className="secondary" type="submit">
                 REGISTER
               </button>

@@ -1,32 +1,19 @@
 import React from "react";
 import Input from "antd/lib/input/Input";
 import { Form } from "antd";
-import "./Registration.css";
+import "./Login.css";
+import "@lottiefiles/lottie-player";
 // import LoadSpinner from "../components/LoadSpinner/LoadSpinner";
 
-const Registration = () => {
+const Login = () => {
   return (
-    <div className="register">
+    <div className="login">
       {/* {loading && <Spinner />} */}
       <div className="row justify-content-center align-items-center w-100 h-100">
-        <div className="col-md-5">
-          <div className="lottie">
-            <lottie-player
-              src="https://lottie.host/796e8af4-d9dd-43b3-b692-d7c344e919ac/UGCQhy8BcH.json"
-              background="transparent"
-              speed="1"
-              loop
-              autoplay
-            ></lottie-player>
-          </div>
-        </div>
         <div className="col-md-4">
           <Form layout="vertical">
-            <h1>REGISTER</h1>
+            <h1>Login</h1>
 
-            <Form.Item label="Name" name="name">
-              <Input />
-            </Form.Item>
             <Form.Item label="Email" name="email">
               <Input />
             </Form.Item>
@@ -35,16 +22,28 @@ const Registration = () => {
             </Form.Item>
 
             <div className="d-flex justify-content-between align-items-center">
-              <h1>Already Registered , Click Here To Login</h1>
+              <h1>Not Registered Yet , Click Here To Register</h1>
               <button className="secondary" type="submit">
-                REGISTER
+                LOGIN
               </button>
             </div>
           </Form>
+        </div>
+        <div className="col-md-5">
+          <div className="lottie">
+            <lottie-player
+              //   src="https://assets3.lottiefiles.com/packages/lf20_06a6pf9i.json"
+              src="https://lottie.host/057351a4-d4eb-4603-bb3d-785745cdf783/Ci3Mh1tFaD.json"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+            ></lottie-player>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Registration;
+export default Login;

@@ -1,9 +1,9 @@
-.register {
+.login {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to right, #4fd64a 0%, #7852a7 100%);
+  background-image: linear-gradient(to right, #7852a7 0%, #4fd64a 100%);
 }
 .lottie {
   height: 400px;

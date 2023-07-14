@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "antd/lib/input/Input";
 import { Form } from "antd";
+import { Link } from "react-router-dom";
 import "./Login.css";
 import "@lottiefiles/lottie-player";
 // import LoadSpinner from "../components/LoadSpinner/LoadSpinner";
@@ -22,7 +23,8 @@ const Login = () => {
 
             <div className="register-submit">
               <h4>
-                Not Registered Yet? <br></br> Click Here To Register
+                Not Registered Yet? <br></br> Click Here To
+                <Link to="/registration">Register</Link>
               </h4>
               <button className="secondary" type="submit">
                 LOGIN

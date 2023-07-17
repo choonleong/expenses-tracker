@@ -52,4 +52,7 @@ a {
   font-size: 35px;
   color: white;
   font-weight: 600;
+
+  display: flex;
+  justify-content: center;
 }

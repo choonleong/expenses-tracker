@@ -4,7 +4,6 @@ import { Form } from "antd";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import "@lottiefiles/lottie-player";
-// import LoadSpinner from "../components/LoadSpinner/LoadSpinner";
 
 const Login = () => {
   return (

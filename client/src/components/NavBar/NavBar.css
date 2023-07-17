@@ -1,7 +1,19 @@
-.wrapper {
+.navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   margin: 40px;
+
+  background-color: #14427e;
+  padding: 30px;
+  border-radius: 30px;
+  border-style: dashed;
+}
+
+.title {
+  font-size: 30px;
+  color: rgba(255, 255, 255, 255);
+  /* margin: 0 !important; */
+  cursor: pointer;
 }

@@ -14,8 +14,8 @@ const NavBar = () => {
   );
 
   return (
-    <div className="nav-bar">
-      <div className="wrapper">
+    <div className="wrapper-navbar">
+      <div className="navbar">
         <div>
           <h1 className="title">My Expenses Tracker</h1>
         </div>

@@ -1,0 +1,8 @@
+.ant-select-selector {
+  border: 1px solid gray !important;
+}
+
+.anticon svg {
+  font-size: 30px;
+  cursor: pointer;
+}

@@ -15,6 +15,9 @@ const Home = () => {
             <div className="select-ie">
               <Components.SelectIE />
             </div>
+            <div className="data-icons">
+              <Components.DataIcons />
+            </div>
           </div>
         </div>
       </Components.NavBar>

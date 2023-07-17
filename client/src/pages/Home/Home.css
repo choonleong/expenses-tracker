@@ -22,3 +22,14 @@
 .select-ie {
   margin: 20px;
 }
+
+.data-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anticon svg {
+  font-size: 20px;
+  cursor: pointer;
+}

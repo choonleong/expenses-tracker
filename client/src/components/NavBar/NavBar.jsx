@@ -20,8 +20,8 @@ const NavBar = (props) => {
           <h1 className="title">My Expenses Tracker</h1>
         </div>
         <div>
-          <Dropdown overlay={menu} placement="bottomLeft">
-            <button className="settings">Settings</button>
+          <Dropdown overlay={menu}>
+            <button className="primary">Settings</button>
           </Dropdown>
         </div>
       </div>

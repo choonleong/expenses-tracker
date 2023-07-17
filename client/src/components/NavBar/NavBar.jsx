@@ -2,7 +2,7 @@ import React from "react";
 import "./NavBar.css";
 import { Menu, Dropdown } from "antd";
 
-const NavBar = () => {
+const NavBar = (props) => {
   const menu = (
     <Menu
       items={[
@@ -25,6 +25,7 @@ const NavBar = () => {
           </Dropdown>
         </div>
       </div>
+      <div className="content">{props.children}</div>
     </div>
   );
 };

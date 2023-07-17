@@ -1,0 +1,15 @@
+.wrapper-home-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transactions-timeline {
+  height: 90vh;
+  width: 95vw;
+  box-shadow: 0 0 2px gray;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  padding: 15px;
+  overflow-y: scroll;
+}

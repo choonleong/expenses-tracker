@@ -22,7 +22,7 @@ const Login = () => {
 
             <div className="register-submit">
               <h4>
-                Not Registered Yet? <br></br> Click Here To <span></span>
+                Don't have an account? <br></br> Click Here To <span></span>
                 <Link to="/registration">Register</Link>
               </h4>
               <button className="secondary" type="submit">
@@ -34,7 +34,6 @@ const Login = () => {
         <div className="wrapper-lottie">
           <div className="lottie">
             <lottie-player
-              //   src="https://assets3.lottiefiles.com/packages/lf20_06a6pf9i.json"
               src="https://lottie.host/057351a4-d4eb-4603-bb3d-785745cdf783/Ci3Mh1tFaD.json"
               background="transparent"
               speed="1"

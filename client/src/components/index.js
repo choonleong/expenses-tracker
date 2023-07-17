@@ -1,7 +1,8 @@
 import React from "react";
 import NavBar from "./NavBar/NavBar";
 import LoadSpinner from "./LoadSpinner/LoadSpinner";
-import TimeLine from "./SelectTimeline/selectTimeline";
+import TimeLine from "./Select_Timeline/selectTimeline";
+import SelectIE from "./Select_IE/select_ie";
 
 const Components = {
   NavBar: (props) => {
@@ -12,6 +13,9 @@ const Components = {
   },
   TimeLine: (props) => {
     return <TimeLine {...props} />;
+  },
+  SelectIE: (props) => {
+    return <SelectIE {...props} />;
   },
 };
 

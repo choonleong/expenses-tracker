@@ -12,6 +12,9 @@ const Home = () => {
             <div className="transactions-timeline">
               <Components.TimeLine />
             </div>
+            <div className="select-ie">
+              <Components.SelectIE />
+            </div>
           </div>
         </div>
       </Components.NavBar>

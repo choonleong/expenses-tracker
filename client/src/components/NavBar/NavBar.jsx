@@ -21,7 +21,7 @@ const NavBar = (props) => {
         </div>
         <div>
           <Dropdown overlay={menu} placement="bottomLeft">
-            <button className="primary">Settings</button>
+            <button className="settings">Settings</button>
           </Dropdown>
         </div>
       </div>

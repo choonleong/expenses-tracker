@@ -1,10 +1,14 @@
-.wrapper-home-navbar {
+.wrapper-home {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.transactions-timeline {
+.wrapper-home-navbar {
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+
   height: 90vh;
   width: 95vw;
   box-shadow: 0 0 2px gray;
@@ -12,4 +16,9 @@
   border-top-left-radius: 25px;
   padding: 15px;
   overflow-y: scroll;
+}
+
+.transactions-timeline,
+.select-ie {
+  margin: 20px;
 }

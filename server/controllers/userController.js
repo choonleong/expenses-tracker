@@ -10,28 +10,18 @@ const validateEmailAdress = (email) => {
 //sign in to existing account
 const signIn = async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const user = await userModel.findOne({ email });
-    if (!user) {
-      return res.status(404).send("User Not Found");
-    }
-    const isMath = await bcrypt.compare(password, user.password);
-    console.log(isMath);
-    if (isMath) {
-      return res.status(200).json({
-        success: true,
-        user,
-      });
-    }
-    return res.status(404).json({
-      success: false,
-      data: "password incorrect",
+    const result = await userModel.findOne({
+      email: req.body.email,
+      password: req.body.password,
     });
+
+    if (result) {
+      res.send(result);
+    } else {
+      res.status(500).json("Error");
+    }
   } catch (error) {
-    res.status(400).json({
-      success: false,
-      error,
-    });
+    res.status(500).json(error);
   }
 };
 

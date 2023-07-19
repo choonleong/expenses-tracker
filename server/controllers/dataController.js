@@ -2,32 +2,33 @@
 const httpStatus = require("http-status");
 const recordModel = require("../models/record");
 
-const data = [];
-
 // controllers
-const addRecord = async (req, res) => {
+const addData = async (req, res) => {
   try {
     const newTransaction = new recordModel(req.body);
     await newTransaction.save();
-    return res.json({ msg: "New transaction has been succesfully added!" });
+    return res.json({ msg: "Record has been successfully added!" });
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
   }
 };
 
-// const data = [];
+const deleteData = async (req, res) => {
+  try {
+    await recordModel.findOneAndDelete({ _id: req.body.transacationId });
+    return res.json({ msg: "Record has been deleted!" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+};
 
-// const newRecord = async (req, res) => {
-//   data.push(req.body);
-//   return res.json({ msg: "New transaction has been successfully added!" });
-// };
-
-const readAll = (req, res) => {
+const fetchAllData = (req, res) => {
   if (data.length > 0) {
     return res.json(data);
   }
   return res.sendStatus(httpStatus.NOT_FOUND);
 };
 
-module.exports = { addRecord, readAll };
+module.exports = { addData, fetchAllData, deleteData };

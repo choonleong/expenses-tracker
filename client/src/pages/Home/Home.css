@@ -28,8 +28,3 @@
   align-items: center;
   justify-content: center;
 }
-
-.anticon svg {
-  font-size: 20px;
-  cursor: pointer;
-}

@@ -32,8 +32,7 @@ const data = [];
 
 const newRecord = async (req, res) => {
   data.push(req.body);
-  // return res.json({ msg: "New transaction has been successfully added!" });
-  res.sendStatus(httpStatus.CREATED);
+  return res.json({ msg: "New transaction has been successfully added!" });
 };
 
 const readAll = (req, res) => {

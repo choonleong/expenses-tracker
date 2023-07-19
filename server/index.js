@@ -1,18 +1,25 @@
 const express = require("express");
-// const { router } = require("./routes/data");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const connectDb = require("./config/connectDB");
 const { router: DataRouter } = require("./routes/data");
-// import mongoose from "mongoose";
-// import cors from "cors";
-// import dotenv from "dotenv";
 
-//route imports
+//config dotenv files
+dotenv.config();
+
+//database call
+connectDb();
+
+//rest object
+const app = express();
+
+//middlewares
+app.use(express.json());
+app.use(cors());
 
 //routes
+app.use("/addrecord", DataRouter);
 
-const app = express();
+//port and listening server
 const port = process.env.PORT || 3333;
-// const CONNECTION_URL = process.env.CONNECTION_URL;
-
-app.use(express.json());
-app.use("/newrecord", DataRouter);
 app.listen(port, () => console.log(`Listening to port ${port}`));

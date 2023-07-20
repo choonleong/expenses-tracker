@@ -1,14 +1,31 @@
-import React from "react";
-import Input from "antd/lib/input/Input";
-import { Form } from "antd";
+import axios from "axios";
+import React, { useState } from "react";
+import { Form, Input, message } from "antd";
 import { Link } from "react-router-dom";
 import "./Registration.css";
 import "@lottiefiles/lottie-player";
 
 const Registration = () => {
+  const [loading, setLoading] = useState(false);
+  // const navigate = useNavigate();
+
+  //form submit
+  const submitHandler = async (values) => {
+    try {
+      setLoading(true);
+      await axios.post("/user/signUp", values);
+      message.success("Registration is Successful!");
+      setLoading(false);
+      // navigate("/login");
+    } catch (error) {
+      setLoading(false);
+      message.error("Please check your registration details");
+    }
+  };
+
   return (
     <div className="registration">
-      {/* {loading && <Spinner />} */}
+      {loading}
       <div className="wrapper">
         <div className="wrapper-lottie">
           <div className="lottie">
@@ -22,17 +39,20 @@ const Registration = () => {
           </div>
         </div>
         <div className="wrapper-form">
-          <Form layout="vertical">
+          <Form layout="vertical" onFinish={submitHandler}>
             <h1>Account Registration</h1>
 
             <Form.Item label="Name" name="name">
-              <Input />
+              <Input placeholder="Please enter your name" />
             </Form.Item>
             <Form.Item label="Email" name="email">
-              <Input />
+              <Input placeholder="Please enter a valid email address" />
             </Form.Item>
             <Form.Item label="Password" name="password">
-              <Input type="password" />
+              <Input
+                type="password"
+                placeholder="Please enter a minimum of 9 characters"
+              />
             </Form.Item>
 
             <div className="register-submit">

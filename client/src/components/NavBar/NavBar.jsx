@@ -2,26 +2,24 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { Menu, Dropdown } from "antd";
+import { message } from "antd";
 
 const NavBar = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
 
+  //logout function
+  const logoutHandler = () => {
+    localStorage.removeItem("user");
+    message.success("Logout Successfully");
+    navigate("/");
+  };
+
   const menu = (
     <Menu
       items={[
         {
-          label: (
-            <li
-              onClick={() => {
-                localStorage.removeItem("user");
-                navigate("/");
-              }}
-            >
-              Logout
-            </li>
-          ),
-          // label: <li>Logout</li>,
+          label: <li onClick={logoutHandler}>Logout</li>,
         },
       ]}
     />

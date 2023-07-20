@@ -24,11 +24,12 @@ const Registration = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("user")) {
-  //     navigate("/home");
-  //   }
-  // }, []);
+  //routes user to Home if credentials exist
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      navigate("/home");
+    }
+  }, []);
 
   return (
     <div className="registration">

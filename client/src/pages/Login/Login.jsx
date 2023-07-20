@@ -29,11 +29,11 @@ const Login = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("user")) {
-  //     navigate("/home");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      navigate("/home");
+    }
+  }, []);
 
   return (
     <div className="login">

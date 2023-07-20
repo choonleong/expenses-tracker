@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Form, Input, message } from "antd";
 import { Link } from "react-router-dom";
+import Components from "../../components";
 import "./Login.css";
 import "@lottiefiles/lottie-player";
 
@@ -30,7 +31,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      {loading}
+      {loading && <Components.LoadSpinner />}
       <div className="wrapper">
         <div className="wrapper-form">
           <Form layout="vertical" onFinish={submitHandler}>

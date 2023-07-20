@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Form, Input, message } from "antd";
 import { Link } from "react-router-dom";
+import Components from "../../components";
 import "./Registration.css";
 import "@lottiefiles/lottie-player";
 
@@ -25,7 +26,7 @@ const Registration = () => {
 
   return (
     <div className="registration">
-      {loading}
+      {loading && <Components.LoadSpinner />}
       <div className="wrapper">
         <div className="wrapper-lottie">
           <div className="lottie">

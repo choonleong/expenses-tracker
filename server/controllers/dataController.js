@@ -24,11 +24,18 @@ const deleteData = async (req, res) => {
   }
 };
 
-const fetchAllData = (req, res) => {
-  if (data.length > 0) {
+const fetchAllData = async (req, res) => {
+  try {
+    const data = await recordModel.find();
     return res.json(data);
+  } catch (error) {
+    console.log(error);
+    return res.sendStatus(httpStatus.NOT_FOUND);
   }
-  return res.sendStatus(httpStatus.NOT_FOUND);
+  // if (data.length > 0) {
+  //   return res.json(data);
+  // }
+  // return res.sendStatus(httpStatus.NOT_FOUND);
 };
 
 module.exports = { addData, fetchAllData, deleteData };

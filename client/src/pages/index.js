@@ -2,6 +2,7 @@ import React from "react";
 import Login from "./Login/Login";
 import Registration from "./Registration/Registration";
 import Home from "./Home/Home";
+import NotFound from "./NotFound/NotFound";
 
 const Pages = {
   Login: (props) => {
@@ -12,6 +13,9 @@ const Pages = {
   },
   Home: (props) => {
     return <Home {...props} />;
+  },
+  NotFound: (props) => {
+    return <NotFound {...props} />;
   },
 };
 

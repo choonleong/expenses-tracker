@@ -9,9 +9,8 @@ const {
 } = require("../controllers/dataController");
 
 //routers
-// router.post("/newrecord", newRecord);
 router.get("/fetchAllData", fetchAllData);
 router.post("/addData", addData);
-router.post("/deleteData", deleteData);
+router.delete("/deleteData/:id", deleteData);
 
 module.exports = { router };

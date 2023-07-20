@@ -16,8 +16,11 @@ const addData = async (req, res) => {
 
 const deleteData = async (req, res) => {
   try {
-    await recordModel.findOneAndDelete({ _id: req.body.transacationId });
+    const id = req.params.id;
+    await recordModel.findOneAndDelete({ _id: id });
     return res.json({ msg: "Record has been deleted!" });
+    // console.log(id);
+    // res.send(id);
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
@@ -32,10 +35,6 @@ const fetchAllData = async (req, res) => {
     console.log(error);
     return res.sendStatus(httpStatus.NOT_FOUND);
   }
-  // if (data.length > 0) {
-  //   return res.json(data);
-  // }
-  // return res.sendStatus(httpStatus.NOT_FOUND);
 };
 
 module.exports = { addData, fetchAllData, deleteData };

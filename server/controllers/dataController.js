@@ -19,8 +19,18 @@ const deleteData = async (req, res) => {
     const id = req.params.id;
     await recordModel.findOneAndDelete({ _id: id });
     return res.json({ msg: "Record has been deleted!" });
-    // console.log(id);
-    // res.send(id);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+};
+
+const editData = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const payload = req.body;
+    await recordModel.findByIdAndUpdate({ _id: id }, payload);
+    return res.json({ msg: "Record has been updated!" });
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
@@ -37,4 +47,4 @@ const fetchAllData = async (req, res) => {
   }
 };
 
-module.exports = { addData, fetchAllData, deleteData };
+module.exports = { addData, fetchAllData, deleteData, editData };

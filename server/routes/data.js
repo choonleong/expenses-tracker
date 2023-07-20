@@ -6,11 +6,13 @@ const {
   addData,
   fetchAllData,
   deleteData,
+  editData,
 } = require("../controllers/dataController");
 
 //routers
 router.get("/fetchAllData", fetchAllData);
 router.post("/addData", addData);
 router.delete("/deleteData/:id", deleteData);
+router.put("/editData/:id", editData);
 
 module.exports = { router };

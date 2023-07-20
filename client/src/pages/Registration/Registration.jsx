@@ -1,14 +1,14 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input, message } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Components from "../../components";
 import "./Registration.css";
 import "@lottiefiles/lottie-player";
 
 const Registration = () => {
   const [loading, setLoading] = useState(false);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   //form submit
   const submitHandler = async (values) => {
@@ -17,12 +17,18 @@ const Registration = () => {
       await axios.post("/user/signUp", values);
       message.success("Registration is Successful!");
       setLoading(false);
-      // navigate("/login");
+      navigate("/home");
     } catch (error) {
       setLoading(false);
       message.error("Please check your registration details");
     }
   };
+
+  // useEffect(() => {
+  //   if (localStorage.getItem("user")) {
+  //     navigate("/home");
+  //   }
+  // }, []);
 
   return (
     <div className="registration">

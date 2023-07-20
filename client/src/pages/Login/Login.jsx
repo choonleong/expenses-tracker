@@ -1,14 +1,14 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input, message } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Components from "../../components";
 import "./Login.css";
 import "@lottiefiles/lottie-player";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   //form submit
   const submitHandler = async (values) => {
@@ -22,12 +22,18 @@ const Login = () => {
         JSON.stringify({ ...data.user, password: "" })
       );
       message.success(`Hi ${data.name}, welcome back!`);
-      // navigate("/");
+      navigate("/home");
     } catch (error) {
       setLoading(false);
       message.error("Please check your login details");
     }
   };
+
+  // useEffect(() => {
+  //   if (localStorage.getItem("user")) {
+  //     navigate("/home");
+  //   }
+  // }, []);
 
   return (
     <div className="login">

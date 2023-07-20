@@ -10,6 +10,6 @@ const recordSchema = new mongoose.Schema({
   // date: { type: Date, required: true },
 });
 
-const recordModel = mongoose.model("Records", recordSchema);
+const recordModel = mongoose.model("Record", recordSchema);
 
 module.exports = recordModel;

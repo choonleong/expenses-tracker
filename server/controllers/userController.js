@@ -10,13 +10,13 @@ const validateEmailAdress = (email) => {
 //sign in to existing account
 const signIn = async (req, res) => {
   try {
-    const result = await userModel.findOne({
+    const user = await userModel.findOne({
       email: req.body.email,
       password: req.body.password,
     });
 
-    if (result) {
-      res.send(result);
+    if (user) {
+      res.send(user);
     } else {
       res.status(500).json("Error");
     }

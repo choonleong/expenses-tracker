@@ -16,6 +16,8 @@ html {
   border: none;
   border-radius: 3px;
   cursor: pointer;
+
+  font-size: large;
 }
 
 .secondary {

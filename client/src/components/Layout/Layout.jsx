@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./NavBar.css";
+import "./Layout.css";
 import { Menu, Dropdown } from "antd";
 import { message } from "antd";
 
-const NavBar = (props) => {
+const Layout = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
 
@@ -42,4 +42,4 @@ const NavBar = (props) => {
   );
 };
 
-export default NavBar;
+export default Layout;

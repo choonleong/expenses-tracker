@@ -5,6 +5,7 @@ import TimeLine from "./Select_Timeline/selectTimeline";
 import SelectIE from "./Select_IE/select_ie";
 import DataIcons from "./DataIcons/DataIcons";
 import { ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
+import DataTable from "./DataTable/DataTable";
 
 const Components = {
   Layout: (props) => {
@@ -24,6 +25,9 @@ const Components = {
   },
   ProtectedRoute: (props) => {
     return <ProtectedRoute {...props} />;
+  },
+  DataTable: (props) => {
+    return <DataTable {...props} />;
   },
 };
 

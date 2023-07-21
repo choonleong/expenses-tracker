@@ -26,7 +26,7 @@ const DataIcons = () => {
           onClick={() => setSelectData("chart")}
         />
       </div>
-      <div>
+      <div className="add-button">
         <button className="add-new-data">Add New</button>
       </div>
     </>

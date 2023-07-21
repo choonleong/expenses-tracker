@@ -5,7 +5,7 @@
 }
 
 .wrapper-home-navbar {
-  display: flex;
+  /* display: flex; */
   /* align-items: center; */
   justify-content: space-between;
 
@@ -36,4 +36,10 @@
   justify-content: center;
 
   /* margin: 35px; */
+}
+
+.test {
+  display: flex;
+  justify-content: space-between;
+  width: 92vw;
 }

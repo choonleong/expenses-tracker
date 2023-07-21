@@ -4,9 +4,9 @@
   justify-content: space-between;
 
   margin: 40px;
-
   background-color: #14427e;
   padding: 30px;
+
   border-radius: 30px;
   border-style: dashed;
 }
@@ -15,5 +15,6 @@
   font-size: 30px;
   color: rgba(255, 255, 255, 255);
   /* margin: 0 !important; */
+  margin-left: 1em;
   cursor: pointer;
 }

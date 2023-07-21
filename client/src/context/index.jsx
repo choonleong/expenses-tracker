@@ -3,6 +3,8 @@ import React, { createContext, useState } from "react";
 const UserContext = createContext({});
 
 const UserContextProvider = ({ children }) => {
+  const [getData, setGetData] = useState([]);
+
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn") === "true"
@@ -27,6 +29,8 @@ const UserContextProvider = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
+        getData,
+        setGetData,
         currentUser,
         isLoggedIn,
         setCurrentUser,

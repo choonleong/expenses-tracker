@@ -31,8 +31,6 @@ const Login = () => {
   };
 
   useEffect(() => {
-    console.log(isLoggedIn);
-
     if (isLoggedIn) {
       navigate("/home");
     }

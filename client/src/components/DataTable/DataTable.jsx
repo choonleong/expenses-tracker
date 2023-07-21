@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../context";
 import { Table } from "antd";
 import moment from "moment";
-// import React, { useState } from "react";
 import { DeleteFilled, EditFilled } from "@ant-design/icons";
 
-// const [showModal, setShowModal] = useState(false);
-
 const DataTable = () => {
+  const { getData } = useContext(UserContext);
+
   const columns = [
     {
       title: "Date",
@@ -29,14 +29,16 @@ const DataTable = () => {
       title: "Reference",
       dataIndex: "reference",
     },
-    {
-      title: "Actions",
-    },
+    // {
+    //   title: "Actions",
+    // },
   ];
+
+  console.log(getData);
 
   return (
     <>
-      <Table columns={columns} />
+      <Table columns={columns} dataSource={getData} />
     </>
   );
 };

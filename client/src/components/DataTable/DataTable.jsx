@@ -29,12 +29,19 @@ const DataTable = () => {
       title: "Reference",
       dataIndex: "reference",
     },
-    // {
-    //   title: "Actions",
-    // },
+    {
+      title: "Actions",
+      dataIndex: "actions",
+      render: (text, record) => {
+        return (
+          <div className="wrapper-edit-delete">
+            <EditFilled className="edit-button" />
+            <DeleteFilled className="delete-button" />
+          </div>
+        );
+      },
+    },
   ];
-
-  console.log(getData);
 
   return (
     <>

@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  AlignLeftOutlined,
-  AreaChartOutlined,
-  //   FormOutlined,
-  //   CloseSquareOutlined,
-} from "@ant-design/icons";
+import { AlignLeftOutlined, AreaChartOutlined } from "@ant-design/icons";
 import "./DataIcons.css";
 
 const DataIcons = () => {

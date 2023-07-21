@@ -16,7 +16,7 @@ const FetchAllData = async () => {
     });
     setGetData(response.data);
   } catch (error) {
-    message.error("Data fetch interuppted");
+    // message.error("Data fetch interuppted");
   }
 };
 

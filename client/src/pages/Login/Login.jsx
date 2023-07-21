@@ -9,7 +9,7 @@ import { UserContext } from "../../context";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
-  const { signInUser } = useContext(UserContext);
+  const { signInUser, isLoggedIn } = useContext(UserContext);
   const navigate = useNavigate();
 
   //form submit
@@ -31,10 +31,12 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("user")) {
+    console.log(isLoggedIn);
+
+    if (isLoggedIn) {
       navigate("/home");
     }
-  }, []);
+  }, [isLoggedIn, navigate]);
 
   return (
     <div className="login">

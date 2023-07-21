@@ -1,13 +1,15 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Form, Input, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import Components from "../../components";
 import "./Login.css";
 import "@lottiefiles/lottie-player";
+import { UserContext } from "../../context";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
+  const { signInUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   //form submit
@@ -16,11 +18,10 @@ const Login = () => {
       setLoading(true);
       const { data } = await axios.post("user/signIn", values);
       setLoading(false);
-      // message.success("login success");
-      localStorage.setItem(
-        "user",
-        JSON.stringify({ ...data.user, password: "" })
-      );
+
+      //context sign in
+      signInUser({ data });
+
       message.success(`Hi ${data.name}, welcome back!`);
       navigate("/home");
     } catch (error) {

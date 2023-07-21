@@ -7,7 +7,6 @@ const UserContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState();
 
   const signOutUser = () => {
-    localStorage.removeItem("token");
     localStorage.removeItem("user");
     setCurrentUser({});
     setIsLoggedIn(false);

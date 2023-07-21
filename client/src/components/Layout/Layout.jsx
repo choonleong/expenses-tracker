@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../context";
 import { useNavigate } from "react-router-dom";
 import "./Layout.css";
 import { Menu, Dropdown } from "antd";
@@ -6,11 +7,12 @@ import { message } from "antd";
 
 const Layout = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
+  const { signOutUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   //logout function
   const logoutHandler = () => {
-    localStorage.removeItem("user");
+    signOutUser();
     message.success("Logout Successfully");
     navigate("/");
   };

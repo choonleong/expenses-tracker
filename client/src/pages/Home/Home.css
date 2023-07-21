@@ -9,11 +9,12 @@
   /* align-items: center; */
   justify-content: space-between;
 
-  height: 90vh;
+  height: 75vh;
   width: 95vw;
   box-shadow: 0 0 2px gray;
-  border-top-right-radius: 25px;
-  border-top-left-radius: 25px;
+  /* border-top-right-radius: 25px; */
+  /* border-top-left-radius: 25px; */
+  border-radius: 25px;
   padding: 15px;
   overflow-y: scroll;
 }
@@ -25,7 +26,7 @@
 
 .transactions-timeline,
 .select-ie {
-  margin: 2em;
+  margin: 1em;
 }
 
 .data-icons {

@@ -33,7 +33,7 @@ const Layout = (props) => {
         </div>
         <div>
           <Dropdown overlay={menu}>
-            <button className="primary">Settings</button>
+            <button className="settings-button">Settings</button>
           </Dropdown>
         </div>
       </div>

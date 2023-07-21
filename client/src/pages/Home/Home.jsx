@@ -8,7 +8,7 @@ const Home = () => {
       <Components.Layout>
         <div className="wrapper-home">
           <div className="wrapper-home-navbar">
-            <div className="test">
+            <div className="wrapper-topbar">
               <div className="wrapper-transaction-income">
                 <div className="transactions-timeline">
                   <Components.TimeLine />

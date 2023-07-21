@@ -1,8 +1,8 @@
 import React from "react";
 import { Table } from "antd";
-// import moment from "moment";
+import moment from "moment";
 // import React, { useState } from "react";
-// import { DeleteFilled, EditFilled } from "@ant-design/icons";
+import { DeleteFilled, EditFilled } from "@ant-design/icons";
 
 // const [showModal, setShowModal] = useState(false);
 
@@ -11,7 +11,7 @@ const DataTable = () => {
     {
       title: "Date",
       dataIndex: "date",
-      // render: (text) => <span>{moment(text).format("YYYY-MM-DD")}</span>,
+      render: (text) => <span>{moment(text).format("YYYY-MM-DD")}</span>,
     },
     {
       title: "Category",
@@ -29,25 +29,9 @@ const DataTable = () => {
       title: "Reference",
       dataIndex: "reference",
     },
-    // {
-    //   title: "Actions",
-    //   render: () => (
-    //     <div>
-    //       <EditFilled
-    //       // onClick={() => {
-    //       //   setEditable(record);
-    //       //   setShowModal(true);
-    //       // }}
-    //       />
-    //       <DeleteFilled
-    //       // className="mx-2"
-    //       // onClick={() => {
-    //       //   handleDelete(record);
-    //       // }}
-    //       />
-    //     </div>
-    //   ),
-    // },
+    {
+      title: "Actions",
+    },
   ];
 
   return (

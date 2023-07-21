@@ -1,4 +1,18 @@
-/* .data-svg-icons {
-  border-color: blue;
-  border-style: dashed;
-} */
+.outlined-list,
+.outlined-chart {
+  margin-top: 3em;
+  margin-left: 1.5em;
+}
+
+.add-new-data {
+  margin-top: 3em;
+  margin-left: 4em;
+  margin-right: 2em;
+
+  background-color: #14427e;
+  padding: 5px 20px;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}

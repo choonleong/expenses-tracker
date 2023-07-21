@@ -11,11 +11,11 @@ const DataIcons = () => {
   return (
     <>
       <div className="data-svg-icons">
-        <AlignLeftOutlined />
-        <AreaChartOutlined />
+        <AlignLeftOutlined className="outlined-list" />
+        <AreaChartOutlined className="outlined-chart" />
       </div>
       <div>
-        <button className="primary">Add New</button>
+        <button className="add-new-data">Add New</button>
       </div>
     </>
   );

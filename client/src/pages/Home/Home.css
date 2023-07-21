@@ -20,11 +20,14 @@
 
 .transactions-timeline,
 .select-ie {
-  margin: 20px;
+  margin: 2em;
 }
 
 .data-icons {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  /* align-items: center; */
   justify-content: center;
+
+  /* margin: 35px; */
 }

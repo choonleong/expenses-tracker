@@ -25,7 +25,7 @@ const TimeLine = () => {
       <Select
         value={timeline}
         onChange={(value) => setTimeline(value)}
-        style={{ width: 120 }}
+        style={{ width: 180 }}
       >
         <Select.Option value="7">7 days</Select.Option>
         <Select.Option value="30">30 days</Select.Option>

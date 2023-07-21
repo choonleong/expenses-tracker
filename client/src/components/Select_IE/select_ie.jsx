@@ -11,7 +11,7 @@ const SelectIE = () => {
       <Select
         value={type}
         onChange={(value) => setType(value)}
-        style={{ width: 120 }}
+        style={{ width: 180 }}
       >
         <Select.Option value="all">All</Select.Option>
         <Select.Option value="income">Income</Select.Option>

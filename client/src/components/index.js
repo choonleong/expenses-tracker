@@ -6,6 +6,7 @@ import SelectIE from "./Select_IE/select_ie";
 import DataIcons from "./DataIcons/DataIcons";
 import { ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
 import DataTable from "./DataTable/DataTable";
+import DataAnalysis from "./DataAnalysis/DataAnalysis";
 
 const Components = {
   Layout: (props) => {
@@ -28,6 +29,9 @@ const Components = {
   },
   DataTable: (props) => {
     return <DataTable {...props} />;
+  },
+  DataAnalysis: (props) => {
+    return <DataAnalysis {...props} />;
   },
 };
 

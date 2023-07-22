@@ -21,9 +21,6 @@ export const FetchAllData = async () => {
 export const DeleteData = async (record, refreshData) => {
   try {
     await axios.delete(`data/deleteData/${record._id}`);
-    // {
-    //   transactionID: record._id,
-    // });
     message.success("Transaction Deleted!");
     refreshData();
   } catch (error) {

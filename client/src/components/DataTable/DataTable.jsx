@@ -1,12 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import { UserContext } from "../../context";
 import { FetchAllData, DeleteData } from "../Functions";
-import LoadSpinner from "../LoadSpinner/LoadSpinner";
+import Components from "..";
 import { Table } from "antd";
 import moment from "moment";
 import { DeleteFilled, EditFilled } from "@ant-design/icons";
 import "./DataTable.css";
-import DataAnalytics from "../DataAnalytics/dataAnalytics";
 
 const DataTable = () => {
   const { getData, setGetData, setShowAddModal, selectData } =
@@ -21,7 +20,7 @@ const DataTable = () => {
   }, [setGetData, setShowAddModal]);
 
   if (getData === null) {
-    return <LoadSpinner />;
+    return <Components.LoadSpinner />;
   }
 
   // Callback function for DeleteData.jsx. Upon data deletion, refresh the DataTable by fetching it again
@@ -80,7 +79,7 @@ const DataTable = () => {
       {selectData === "data" ? (
         <Table columns={columns} dataSource={getData} />
       ) : (
-        <DataAnalytics records={getData} />
+        <Components.DataAnalysis records={getData} />
       )}
     </>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { Progress } from "antd";
-const Analytics = ({ allTransection }) => {
+const DataAnalysis = ({ allTransection }) => {
   // category
   //   const categories = [
   //     "salary",
@@ -178,4 +178,4 @@ const Analytics = ({ allTransection }) => {
   );
 };
 
-export default Analytics;
+export default DataAnalysis;

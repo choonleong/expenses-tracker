@@ -5,6 +5,7 @@ import LoadSpinner from "../LoadSpinner/LoadSpinner";
 import { Table } from "antd";
 import moment from "moment";
 import { DeleteFilled, EditFilled } from "@ant-design/icons";
+import "./DataTable.css";
 
 const DataTable = () => {
   const { getData, setGetData } = useContext(UserContext);

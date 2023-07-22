@@ -19,6 +19,23 @@
   transition: background-color 1s;
 }
 
+.transaction-form label {
+  color: black !important;
+}
+
+.modal-addbutton {
+  display: flex;
+  justify-content: right;
+}
+
+.submit-button-modal {
+  color: white;
+  font-style: italic;
+  background-color: #14427e;
+  cursor: pointer;
+  /* width: 120; */
+}
+
 .add-new-data:hover {
   background-color: greenyellow;
   color: black;

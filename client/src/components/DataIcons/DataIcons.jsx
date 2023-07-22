@@ -6,12 +6,16 @@ import { Modal, Form, Input, Select } from "antd";
 
 const DataIcons = () => {
   const [selectData, setSelectData] = useState("data");
-  // const [showModal, setShowModal] = useState(false);
+  const { selectCategory, setSelectCategory } = useContext(UserContext);
   const { showAddModal, setShowAddModal } = useContext(UserContext);
 
   const addNewTransaction = () => {
     setShowAddModal(true);
     console.log(setShowAddModal);
+  };
+
+  const handleCategoryChange = (value) => {
+    setSelectCategory(value);
   };
 
   return (
@@ -49,12 +53,52 @@ const DataIcons = () => {
             <Input type="text" />
           </Form.Item>
           <Form.Item label="Category" name="category">
-            <Select>
+            <Select onChange={handleCategoryChange}>
               <Select.Option value="income">Income</Select.Option>
               <Select.Option value="expense">Expense</Select.Option>
             </Select>
           </Form.Item>
-          <Form.Item label="Type" name="type">
+
+          {selectCategory === "income" ? (
+            <>
+              <Form.Item label="Type" name="type">
+                <Select>
+                  <Select.Option value="salary">Salary</Select.Option>
+                  <Select.Option value="investments">Investments</Select.Option>
+                  <Select.Option value="dividends">Dividends</Select.Option>
+                  <Select.Option value="capital">Capital Gains</Select.Option>
+                  <Select.Option value="deposits">Fixed Deposits</Select.Option>
+                  <Select.Option value="hustles">Side Hustles</Select.Option>
+                </Select>
+              </Form.Item>
+            </>
+          ) : selectCategory === "expense" ? (
+            <>
+              <Form.Item label="Type" name="type">
+                <Select>
+                  <Select.Option value="housing">Housing</Select.Option>
+                  <Select.Option value="transporatation">
+                    Transportation
+                  </Select.Option>
+                  <Select.Option value="food">Food</Select.Option>
+                  <Select.Option value="utilities">Utilities</Select.Option>
+                  <Select.Option value="insurance">Insurance</Select.Option>
+                  <Select.Option value="medical">
+                    Medical and Healthcare
+                  </Select.Option>
+                  <Select.Option value="personal">
+                    Personal Spending
+                  </Select.Option>
+                  <Select.Option value="recreation">
+                    Recreation and Entertainment
+                  </Select.Option>
+                  <Select.Option value="misc">Miscellanous</Select.Option>
+                </Select>
+              </Form.Item>
+            </>
+          ) : null}
+
+          {/* <Form.Item label="Type" name="type">
             <Select>
               <Select.Option value="salary">Salary</Select.Option>
               <Select.Option value="tip">Tip</Select.Option>
@@ -66,7 +110,7 @@ const DataIcons = () => {
               <Select.Option value="fee">Fee</Select.Option>
               <Select.Option value="tax">TAX</Select.Option>
             </Select>
-          </Form.Item>
+          </Form.Item> */}
           <Form.Item label="Date" name="date">
             <Input type="date" />
           </Form.Item>

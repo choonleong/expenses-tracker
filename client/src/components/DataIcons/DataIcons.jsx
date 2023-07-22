@@ -6,7 +6,7 @@ import { Modal, Form, Input, Select } from "antd";
 import { AddData } from "../Functions";
 
 const DataIcons = () => {
-  const [selectData, setSelectData] = useState("data");
+  const { selectData, setSelectData } = useContext(UserContext);
   const { selectCategory, setSelectCategory } = useContext(UserContext);
   const { showAddModal, setShowAddModal } = useContext(UserContext);
 
@@ -100,6 +100,7 @@ const DataIcons = () => {
                   <Select.Option value="recreation">
                     Recreation and Entertainment
                   </Select.Option>
+                  <Select.Option value="travel">Travel</Select.Option>
                   <Select.Option value="misc">Miscellanous</Select.Option>
                 </Select>
               </Form.Item>

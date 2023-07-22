@@ -6,9 +6,11 @@ import { Table } from "antd";
 import moment from "moment";
 import { DeleteFilled, EditFilled } from "@ant-design/icons";
 import "./DataTable.css";
+import DataAnalytics from "../DataAnalytics/dataAnalytics";
 
 const DataTable = () => {
-  const { getData, setGetData, setShowAddModal } = useContext(UserContext);
+  const { getData, setGetData, setShowAddModal, selectData } =
+    useContext(UserContext);
 
   useEffect(() => {
     const transactionTable = async () => {
@@ -75,7 +77,11 @@ const DataTable = () => {
 
   return (
     <>
-      <Table columns={columns} dataSource={getData} />
+      {selectData === "data" ? (
+        <Table columns={columns} dataSource={getData} />
+      ) : (
+        <DataAnalytics records={getData} />
+      )}
     </>
   );
 };

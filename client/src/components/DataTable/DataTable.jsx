@@ -1,8 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { UserContext } from "../../context";
-import FetchAllData from "../Functions/FetchAllData/fetchAllData";
+import { FetchAllData, DeleteData } from "../Functions";
 import LoadSpinner from "../LoadSpinner/LoadSpinner";
-import DeleteData from "../Functions/DeleteData/deleteData";
 import { Table } from "antd";
 import moment from "moment";
 import { DeleteFilled, EditFilled } from "@ant-design/icons";

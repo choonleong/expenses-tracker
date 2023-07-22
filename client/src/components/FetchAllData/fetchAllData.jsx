@@ -4,7 +4,7 @@ import { message } from "antd";
 import { UserContext } from "../../context";
 
 const FetchAllData = async () => {
-  const { setGetData } = useContext(UserContext);
+  // const { setGetData } = useContext(UserContext);
 
   try {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -14,7 +14,8 @@ const FetchAllData = async () => {
       //     ...(frequency === "custom" && { selectedRange }),
       //     type,
     });
-    setGetData(response.data);
+    // setGetData(response.data);
+    return response.data;
   } catch (error) {
     // message.error("Data fetch interuppted");
   }

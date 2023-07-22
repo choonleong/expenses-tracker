@@ -1,10 +1,10 @@
 import React from "react";
 import Components from "../../components";
 import "./Home.css";
-import FetchAllData from "../../components/FetchAllData/fetchAllData";
+// import FetchAllData from "../../components/FetchAllData/fetchAllData";
 
 const Home = () => {
-  FetchAllData();
+  // FetchAllData();
 
   return (
     <>

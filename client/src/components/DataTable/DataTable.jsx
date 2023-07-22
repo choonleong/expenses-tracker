@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { UserContext } from "../../context";
-import FetchAllData from "../FetchAllData/fetchAllData";
+import FetchAllData from "../Functions/FetchAllData/fetchAllData";
 import LoadSpinner from "../LoadSpinner/LoadSpinner";
 import { Table } from "antd";
 import moment from "moment";

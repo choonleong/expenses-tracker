@@ -19,6 +19,10 @@ const DataIcons = () => {
     setSelectCategory(value);
   };
 
+  const onFinish = async (values) => {
+    await AddData(values, setShowAddModal); // Pass setShowAddModal here
+  };
+
   return (
     <>
       <div className="data-svg-icons">
@@ -49,7 +53,11 @@ const DataIcons = () => {
         footer={false}
       >
         <br></br>
-        <Form layout="vertical" className="transaction-form" onFinish={AddData}>
+        <Form
+          layout="vertical"
+          className="transaction-form"
+          onFinish={onFinish}
+        >
           <Form.Item label="Amount" name="amount">
             <Input type="text" />
           </Form.Item>

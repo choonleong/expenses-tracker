@@ -1,5 +1,7 @@
 import axios from "axios";
 import { message } from "antd";
+import { useContext } from "react";
+import { UserContext } from "../../context";
 
 export const FetchAllData = async () => {
   try {
@@ -29,7 +31,9 @@ export const DeleteData = async (record, refreshData) => {
   }
 };
 
-export const AddData = async (values) => {
+export const AddData = async (values, setShowAddModal) => {
+  //   const { setShowAddModal } = useContext(UserContext);
+
   try {
     const user = JSON.parse(localStorage.getItem("user"));
     await axios.post("data/addData", {
@@ -37,6 +41,7 @@ export const AddData = async (values) => {
       userid: user._id,
     });
     message.success("Transaction added successfully");
+    setShowAddModal(false);
   } catch (error) {
     console.log(error);
     message.error("Failed to add data");

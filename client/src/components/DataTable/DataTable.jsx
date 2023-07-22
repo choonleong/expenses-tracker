@@ -8,7 +8,7 @@ import { DeleteFilled, EditFilled } from "@ant-design/icons";
 import "./DataTable.css";
 
 const DataTable = () => {
-  const { getData, setGetData } = useContext(UserContext);
+  const { getData, setGetData, setShowAddModal } = useContext(UserContext);
 
   useEffect(() => {
     const transactionTable = async () => {
@@ -16,7 +16,7 @@ const DataTable = () => {
       setGetData(result);
     };
     transactionTable();
-  }, [setGetData]);
+  }, [setGetData, setShowAddModal]);
 
   if (getData === null) {
     return <LoadSpinner />;

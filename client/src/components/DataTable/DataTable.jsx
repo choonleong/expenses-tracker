@@ -15,7 +15,11 @@ const DataTable = () => {
       setGetData(result);
     };
     transactionTable();
-  }, []);
+  }, [setGetData]);
+
+  if (getData === null) {
+    return <LoadSpinner />;
+  }
 
   const columns = [
     {

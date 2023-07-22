@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { UserContext } from "../../context";
 import FetchAllData from "../Functions/FetchAllData/fetchAllData";
 import LoadSpinner from "../LoadSpinner/LoadSpinner";
+import DeleteData from "../Functions/DeleteData/deleteData";
 import { Table } from "antd";
 import moment from "moment";
 import { DeleteFilled, EditFilled } from "@ant-design/icons";
@@ -51,7 +52,12 @@ const DataTable = () => {
         return (
           <div className="wrapper-edit-delete">
             <EditFilled className="edit-button" />
-            <DeleteFilled className="delete-button" />
+            <DeleteFilled
+              className="delete-button"
+              onClick={() => {
+                DeleteData(record);
+              }}
+            />
           </div>
         );
       },

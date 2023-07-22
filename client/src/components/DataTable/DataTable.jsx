@@ -23,7 +23,7 @@ const DataTable = () => {
     return <LoadSpinner />;
   }
 
-  // Upon data deletion, refresh the DataTable by fetching it again
+  // Callback function for DeleteData.jsx. Upon data deletion, refresh the DataTable by fetching it again
   const handleDeleteSuccess = async () => {
     try {
       const data = await FetchAllData();

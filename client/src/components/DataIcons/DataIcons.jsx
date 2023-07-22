@@ -3,6 +3,7 @@ import { UserContext } from "../../context";
 import { AlignLeftOutlined, AreaChartOutlined } from "@ant-design/icons";
 import "./DataIcons.css";
 import { Modal, Form, Input, Select } from "antd";
+import { AddData } from "../Functions";
 
 const DataIcons = () => {
   const [selectData, setSelectData] = useState("data");
@@ -48,7 +49,7 @@ const DataIcons = () => {
         footer={false}
       >
         <br></br>
-        <Form layout="vertical" className="transaction-form">
+        <Form layout="vertical" className="transaction-form" onFinish={AddData}>
           <Form.Item label="Amount" name="amount">
             <Input type="text" />
           </Form.Item>
@@ -104,7 +105,7 @@ const DataIcons = () => {
             <Input type="text" />
           </Form.Item>
           <div className="modal-addbutton">
-            <button type="primary" className="submit-button-modal">
+            <button type="submit" className="submit-button-modal">
               {" "}
               Save
             </button>

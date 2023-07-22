@@ -28,3 +28,17 @@ export const DeleteData = async (record, refreshData) => {
     console.log(error);
   }
 };
+
+export const AddData = async (values) => {
+  try {
+    const user = JSON.parse(localStorage.getItem("user"));
+    await axios.post("data/addData", {
+      ...values,
+      userid: user._id,
+    });
+    message.success("Transaction added successfully");
+  } catch (error) {
+    console.log(error);
+    message.error("Failed to add data");
+  }
+};

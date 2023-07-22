@@ -12,7 +12,6 @@ const DataIcons = () => {
 
   const addNewTransaction = () => {
     setShowAddModal(true);
-    console.log(setShowAddModal);
   };
 
   const handleCategoryChange = (value) => {
@@ -20,7 +19,7 @@ const DataIcons = () => {
   };
 
   const onFinish = async (values) => {
-    await AddData(values, setShowAddModal); // Pass setShowAddModal here
+    await AddData(values, setShowAddModal);
   };
 
   return (

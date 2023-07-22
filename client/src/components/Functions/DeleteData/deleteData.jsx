@@ -1,17 +1,16 @@
 import axios from "axios";
 import { message } from "antd";
 
-const DeleteData = async (record) => {
+const DeleteData = async (record, refreshData) => {
   try {
     await axios.delete(`data/deleteData/${record._id}`);
     // {
     //   transactionID: record._id,
     // });
     message.success("Transaction Deleted!");
-    // getAllTransactions();
+    refreshData();
   } catch (error) {
     console.log(error);
-    message.error("Unable to Delete");
   }
 };
 

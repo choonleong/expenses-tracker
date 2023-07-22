@@ -23,6 +23,16 @@ const DataTable = () => {
     return <LoadSpinner />;
   }
 
+  // Upon data deletion, refresh the DataTable by fetching it again
+  const handleDeleteSuccess = async () => {
+    try {
+      const data = await FetchAllData();
+      setGetData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const columns = [
     {
       title: "Date",
@@ -55,7 +65,7 @@ const DataTable = () => {
             <DeleteFilled
               className="delete-button"
               onClick={() => {
-                DeleteData(record);
+                DeleteData(record, handleDeleteSuccess());
               }}
             />
           </div>

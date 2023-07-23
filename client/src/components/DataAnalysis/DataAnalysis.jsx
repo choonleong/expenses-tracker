@@ -111,7 +111,8 @@ const DataAnalysis = () => {
             </div>
           </div>
         </div>
-        <hr />
+        <br />
+        <br />
         <div className="row">
           <div className="col-md-6">
             <div className="category-analysis">

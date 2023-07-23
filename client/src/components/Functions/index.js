@@ -1,16 +1,14 @@
 import axios from "axios";
 import { message } from "antd";
-// import { useContext } from "react";
-// import { UserContext } from "../../context";
 
 export const FetchAllData = async () => {
   try {
     const user = JSON.parse(localStorage.getItem("user"));
     const response = await axios.get("data/fetchAllData", {
-      //   userid: user._id,
-      //     frequency,
-      //     ...(frequency === "custom" && { selectedRange }),
-      //     type,
+      userid: user._id,
+      // timeline,
+      // ...(timeline === "custom" && { selectedRange }),
+      // type,
     });
     return response.data;
   } catch (error) {

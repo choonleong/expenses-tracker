@@ -1,10 +1,15 @@
 import React, { createContext, useState } from "react";
+import moment from "moment";
 
 const UserContext = createContext({});
 
 const UserContextProvider = ({ children }) => {
   const [type, setType] = useState("All");
   const [timeline, setTimeline] = useState("7");
+  const [selectedRange, setSelectedRange] = useState({
+    start: moment(),
+    end: moment(),
+  });
   const [getData, setGetData] = useState([]);
   const [showAddModal, setShowAddModal] = useState(false);
   const [selectCategory, setSelectCategory] = useState("income");
@@ -49,6 +54,8 @@ const UserContextProvider = ({ children }) => {
         setSelectData,
         showEditModal,
         setShowEditModal,
+        selectedRange,
+        setSelectedRange,
         currentUser,
         isLoggedIn,
         setCurrentUser,

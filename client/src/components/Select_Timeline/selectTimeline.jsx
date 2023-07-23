@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { DatePicker, Select } from "antd";
 
 import { useState } from "react";
-import "./TimeLine.css";
+import "./selectTimeLine.css";
 import { UserContext } from "../../context";
 import moment from "moment";
 const { RangePicker } = DatePicker;
@@ -13,19 +13,6 @@ const TimeLine = () => {
     start: moment(),
     end: moment(),
   });
-
-  // const handleDateChange = (values) => {
-  //   if (Array.isArray(values)) {
-  //     // Range selection
-  //     setSelectedRange({ start: values[0], end: values[1] });
-  //   } else if (values) {
-  //     // Single date selection
-  //     setSelectedRange({ start: values, end: values });
-  //   } else {
-  //     // Clear the selection
-  //     setSelectedRange({ start: moment(), end: moment() });
-  //   }
-  // };
 
   return (
     <>

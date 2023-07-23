@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { UserContext } from "../../context";
 import { AlignLeftOutlined, AreaChartOutlined } from "@ant-design/icons";
 import "./DataIcons.css";
@@ -6,9 +6,14 @@ import { Modal, Form, Input, Select } from "antd";
 import { AddData } from "../Functions";
 
 const DataIcons = () => {
-  const { selectData, setSelectData } = useContext(UserContext);
-  const { selectCategory, setSelectCategory } = useContext(UserContext);
-  const { showAddModal, setShowAddModal } = useContext(UserContext);
+  const {
+    selectData,
+    setSelectData,
+    selectCategory,
+    setSelectCategory,
+    showAddModal,
+    setShowAddModal,
+  } = useContext(UserContext);
 
   const addNewTransaction = () => {
     setShowAddModal(true);

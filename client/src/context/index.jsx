@@ -4,6 +4,7 @@ const UserContext = createContext({});
 
 const UserContextProvider = ({ children }) => {
   const [type, setType] = useState("All");
+  const [timeline, setTimeline] = useState("7");
   const [getData, setGetData] = useState([]);
   const [showAddModal, setShowAddModal] = useState(false);
   const [selectCategory, setSelectCategory] = useState("income");
@@ -36,6 +37,8 @@ const UserContextProvider = ({ children }) => {
       value={{
         type,
         setType,
+        timeline,
+        setTimeline,
         getData,
         setGetData,
         showAddModal,

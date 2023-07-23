@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { DatePicker, Select } from "antd";
 import { useState } from "react";
 import "./TimeLine.css";
+import { UserContext } from "../../context";
 
 const TimeLine = () => {
-  const [timeline, setTimeline] = useState("7");
+  const { timeline, setTimeline } = useContext(UserContext);
   const [selectedRange, setSelectedRange] = useState([]);
 
   //   {
@@ -30,7 +31,7 @@ const TimeLine = () => {
         <Select.Option value="7">7 days</Select.Option>
         <Select.Option value="30">30 days</Select.Option>
         <Select.Option value="365">365 days</Select.Option>
-        {/* <Select.Option value="custom">Custom Timeline</Select.Option> */}
+        <Select.Option value="custom">Custom Timeline</Select.Option>
       </Select>
 
       {/* {timeline === "custom" && (

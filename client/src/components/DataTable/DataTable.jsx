@@ -79,7 +79,7 @@ const DataTable = () => {
       {selectData === "data" ? (
         <Table columns={columns} dataSource={getData} />
       ) : (
-        <Components.DataAnalysis records={getData} />
+        <Components.DataAnalysis />
       )}
     </>
   );

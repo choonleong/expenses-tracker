@@ -3,6 +3,16 @@
   justify-content: space-around;
 }
 
+.category-analysis,
+.transactions-count {
+  width: 49%;
+}
+
+.progress-bars {
+  display: flex;
+  justify-content: center;
+}
+
 .transactions-count {
   box-shadow: 0 0 2px rgb(132, 131, 131);
   padding: 15px;

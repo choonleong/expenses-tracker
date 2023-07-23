@@ -1,23 +1,31 @@
 import React, { useContext } from "react";
 import { DatePicker, Select } from "antd";
+
 import { useState } from "react";
 import "./TimeLine.css";
 import { UserContext } from "../../context";
+import moment from "moment";
+const { RangePicker } = DatePicker;
 
 const TimeLine = () => {
   const { timeline, setTimeline } = useContext(UserContext);
-  const [selectedRange, setSelectedRange] = useState([]);
+  const [selectedRange, setSelectedRange] = useState({
+    start: moment(),
+    end: moment(),
+  });
 
-  //   {
-  //     timeline === "custom" && (
-  //       <div className="temp">
-  //         <DatePicker
-  //           value={selectedRange}
-  //           onChange={(values) => setSelectedRange(values)}
-  //         />
-  //       </div>
-  //     );
+  // const handleDateChange = (values) => {
+  //   if (Array.isArray(values)) {
+  //     // Range selection
+  //     setSelectedRange({ start: values[0], end: values[1] });
+  //   } else if (values) {
+  //     // Single date selection
+  //     setSelectedRange({ start: values, end: values });
+  //   } else {
+  //     // Clear the selection
+  //     setSelectedRange({ start: moment(), end: moment() });
   //   }
+  // };
 
   return (
     <>
@@ -34,14 +42,14 @@ const TimeLine = () => {
         <Select.Option value="custom">Custom Timeline</Select.Option>
       </Select>
 
-      {/* {timeline === "custom" && (
-        <div className="mt-2">
-          <DatePicker
+      {timeline === "custom" && (
+        <div className="date-range">
+          <RangePicker
             value={selectedRange}
             onChange={(values) => setSelectedRange(values)}
           />
         </div>
-      )} */}
+      )}
     </>
   );
 };

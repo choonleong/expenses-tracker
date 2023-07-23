@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Select } from "antd";
-import { useState } from "react";
+import { UserContext } from "../../context";
 
 const SelectIE = () => {
-  const [type, setType] = useState("All");
+  const { type, setType } = useContext(UserContext);
 
   return (
     <>

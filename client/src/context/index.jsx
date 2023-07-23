@@ -3,10 +3,12 @@ import React, { createContext, useState } from "react";
 const UserContext = createContext({});
 
 const UserContextProvider = ({ children }) => {
+  const [type, setType] = useState("All");
   const [getData, setGetData] = useState([]);
   const [showAddModal, setShowAddModal] = useState(false);
   const [selectCategory, setSelectCategory] = useState("income");
   const [selectData, setSelectData] = useState("data");
+  const [showEditModal, setShowEditModal] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -32,6 +34,8 @@ const UserContextProvider = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
+        type,
+        setType,
         getData,
         setGetData,
         showAddModal,
@@ -40,6 +44,8 @@ const UserContextProvider = ({ children }) => {
         setSelectCategory,
         selectData,
         setSelectData,
+        showEditModal,
+        setShowEditModal,
         currentUser,
         isLoggedIn,
         setCurrentUser,

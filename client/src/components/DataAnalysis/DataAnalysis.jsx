@@ -8,7 +8,6 @@ const DataAnalysis = () => {
   const { getData } = useContext(UserContext);
 
   const transactions = getData;
-  console.log(transactions);
 
   const categories = [
     "salary",
@@ -65,7 +64,7 @@ const DataAnalysis = () => {
 
   return (
     <>
-      <div className="analysis">
+      <div className="data-analysis">
         <div className="row">
           <div className="transactions-count">
             <h4>Total Transactions : {totalTransactions}</h4>

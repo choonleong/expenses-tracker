@@ -6,10 +6,17 @@ import { Table } from "antd";
 import moment from "moment";
 import { DeleteFilled, EditFilled } from "@ant-design/icons";
 import "./DataTable.css";
+import DataEdit from "../DataEdit/DataEdit";
 
 const DataTable = () => {
-  const { getData, setGetData, setShowAddModal, selectData } =
-    useContext(UserContext);
+  const {
+    getData,
+    setGetData,
+    setShowAddModal,
+    selectData,
+    setShowEditModal,
+    showEditModal,
+  } = useContext(UserContext);
 
   useEffect(() => {
     const transactionTable = async () => {
@@ -22,6 +29,11 @@ const DataTable = () => {
   if (getData === null) {
     return <Components.LoadSpinner />;
   }
+
+  const handleEditModalOpen = async () => {
+    setShowEditModal(true);
+    console.log(showEditModal);
+  };
 
   // Callback function for DeleteData.jsx. Upon data deletion, refresh the DataTable by fetching it again
   const handleDeleteSuccess = async () => {
@@ -61,7 +73,10 @@ const DataTable = () => {
       render: (text, record) => {
         return (
           <div className="wrapper-edit-delete">
-            <EditFilled className="edit-button" />
+            <EditFilled
+              className="edit-button"
+              onClick={() => handleEditModalOpen()}
+            />
             <DeleteFilled
               className="delete-button"
               onClick={() => {

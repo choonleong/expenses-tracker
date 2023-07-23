@@ -2,6 +2,7 @@ import React from "react";
 import { Progress } from "antd";
 import { useContext } from "react";
 import { UserContext } from "../../context";
+import "./DataAnalysis.css";
 
 const DataAnalysis = () => {
   const { getData } = useContext(UserContext);
@@ -64,28 +65,26 @@ const DataAnalysis = () => {
 
   return (
     <>
-      <div className="analytics">
+      <div className="analysis">
         <div className="row">
-          <div className="col-md-4 mt-3">
-            <div className="transactions-count">
-              <h4>Total Transactions : {totalTransactions}</h4>
-              <hr />
-              <h5>Income : {totalIncomeNum}</h5>
-              <h5>Expense : {totalExpenseNum}</h5>
+          <div className="transactions-count">
+            <h4>Total Transactions : {totalTransactions}</h4>
+            <hr />
+            <h5>Income : {totalIncomeNum}</h5>
+            <h5>Expense : {totalExpenseNum}</h5>
 
-              <div className="progress-bars">
-                <Progress
-                  className="mx-5"
-                  strokeColor="#5DD64F"
-                  type="circle"
-                  percent={totalIncomeTransactionsPercentage.toFixed(0)}
-                />
-                <Progress
-                  strokeColor="#E5572F"
-                  type="circle"
-                  percent={totalExpenseTransactionsPercentage.toFixed(0)}
-                />
-              </div>
+            <div className="progress-bars">
+              <Progress
+                className="mx-5"
+                strokeColor="#5DD64F"
+                type="circle"
+                percent={totalIncomeTransactionsPercentage.toFixed(0)}
+              />
+              <Progress
+                strokeColor="#E5572F"
+                type="circle"
+                percent={totalExpenseTransactionsPercentage.toFixed(0)}
+              />
             </div>
           </div>
 
@@ -166,7 +165,6 @@ const DataAnalysis = () => {
           </div>
         </div>
       </div>
-      <div>Hello World</div>
     </>
   );
 };

@@ -41,15 +41,16 @@ export const AddData = async (values, setShowAddModal) => {
   }
 };
 
-export const EditData = async (values, refreshData) => {
+export const EditData = async (itemID, values, setShowEditModal) => {
   try {
-    const user = JSON.parse(localStorage.getItem("user"));
-    await axios.put("data/editData", {
-      ...values,
-      userid: user._id,
+    console.log(itemID);
+    // const user = JSON.parse(localStorage.getItem("user"));
+    await axios.put(`data/editData/${itemID}`, {
+      data: values,
+      // userid: user._id,
     });
     message.success("Edited succesfully!");
-    refreshData();
+    setShowEditModal(false);
   } catch (error) {
     console.log(error);
     message.error("Failed to edit data");

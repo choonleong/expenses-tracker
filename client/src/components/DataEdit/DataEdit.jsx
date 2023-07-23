@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../context";
 import { Modal, Form, Select, Input } from "antd";
+import { EditData } from "../Functions";
 import "../DataIcons/DataIcons.css";
 
-const DataEdit = () => {
+const DataEdit = ({ selectedEditItem }) => {
   const { showEditModal, setShowEditModal, selectCategory, setSelectCategory } =
     useContext(UserContext);
 
@@ -11,7 +12,10 @@ const DataEdit = () => {
     setSelectCategory(value);
   };
 
-  console.log(showEditModal);
+  const onFinish = async (values) => {
+    const itemID = selectedEditItem._id;
+    await EditData(itemID, values, setShowEditModal);
+  };
 
   return (
     <>
@@ -27,7 +31,8 @@ const DataEdit = () => {
         <Form
           layout="vertical"
           className="transaction-form"
-          //   onFinish={onFinish}
+          initialValues={selectedEditItem}
+          onFinish={onFinish}
         >
           <Form.Item label="Amount" name="amount">
             <Input type="text" />

@@ -16,6 +16,8 @@ const DataTable = () => {
     selectData,
     setShowEditModal,
     showEditModal,
+    selectedEditItem,
+    setSelectedEditItem,
   } = useContext(UserContext);
 
   useEffect(() => {
@@ -30,9 +32,9 @@ const DataTable = () => {
     return <Components.LoadSpinner />;
   }
 
-  const handleEditModalOpen = async () => {
+  const handleEditModalOpen = async (record) => {
     setShowEditModal(true);
-    console.log(showEditModal);
+    setSelectedEditItem(record);
   };
 
   // Callback function for DeleteData.jsx. Upon data deletion, refresh the DataTable by fetching it again
@@ -75,7 +77,7 @@ const DataTable = () => {
           <div className="wrapper-edit-delete">
             <EditFilled
               className="edit-button"
-              onClick={() => handleEditModalOpen()}
+              onClick={() => handleEditModalOpen(record)}
             />
             <DeleteFilled
               className="delete-button"
@@ -97,7 +99,7 @@ const DataTable = () => {
         <Components.DataAnalysis />
       )}
 
-      {showEditModal && <DataEdit />}
+      {showEditModal && <DataEdit selectedEditItem={selectedEditItem} />}
     </>
   );
 };

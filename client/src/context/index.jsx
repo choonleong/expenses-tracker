@@ -15,6 +15,7 @@ const UserContextProvider = ({ children }) => {
   const [selectCategory, setSelectCategory] = useState("income");
   const [selectData, setSelectData] = useState("data");
   const [showEditModal, setShowEditModal] = useState(false);
+  const [selectedEditItem, setSelectedEditItem] = useState([]);
 
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -50,6 +51,8 @@ const UserContextProvider = ({ children }) => {
         setShowAddModal,
         selectCategory,
         setSelectCategory,
+        selectedEditItem,
+        setSelectedEditItem,
         selectData,
         setSelectData,
         showEditModal,

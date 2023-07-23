@@ -96,6 +96,8 @@ const DataTable = () => {
       ) : (
         <Components.DataAnalysis />
       )}
+
+      {showEditModal && <DataEdit />}
     </>
   );
 };

@@ -3,7 +3,7 @@ import { UserContext } from "../../context";
 import { AlignLeftOutlined, AreaChartOutlined } from "@ant-design/icons";
 import "./DataIcons.css";
 import { Modal, Form, Input, Select } from "antd";
-import { AddData } from "../Functions";
+import { AddData, FetchAllData } from "../Functions";
 
 const DataIcons = () => {
   const {
@@ -13,6 +13,7 @@ const DataIcons = () => {
     setSelectCategory,
     showAddModal,
     setShowAddModal,
+    setGetData,
   } = useContext(UserContext);
 
   const addNewTransaction = () => {
@@ -24,7 +25,13 @@ const DataIcons = () => {
   };
 
   const onFinish = async (values) => {
-    await AddData(values, setShowAddModal);
+    try {
+      await AddData(values, setShowAddModal);
+      const data = await FetchAllData();
+      setGetData(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

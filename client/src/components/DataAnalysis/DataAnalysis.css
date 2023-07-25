@@ -4,7 +4,7 @@
 }
 
 .category-analysis,
-.transactions-count {
+.records-count {
   width: 49%;
 }
 
@@ -13,7 +13,7 @@
   justify-content: center;
 }
 
-.transactions-count {
+.records-count {
   box-shadow: 0 0 2px rgb(132, 131, 131);
   padding: 15px;
   border-radius: 10px;

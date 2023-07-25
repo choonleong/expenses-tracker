@@ -23,7 +23,7 @@ const DataEdit = ({ selectedEditItem }) => {
         // title={editable ? "Edit Transaction" : "Add Transection"}
         className="wrapper-modal"
         title={"Edit Transaction"}
-        visible={showEditModal === true}
+        open={showEditModal === true}
         onCancel={() => setShowEditModal(false)}
         footer={false}
       >

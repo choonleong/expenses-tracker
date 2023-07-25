@@ -7,7 +7,7 @@ import "./DataAnalysis.css";
 const DataAnalysis = () => {
   const { getData } = useContext(UserContext);
 
-  const transactions = getData;
+  const records = getData;
 
   const categories = [
     "salary",
@@ -28,35 +28,40 @@ const DataAnalysis = () => {
     "misc",
   ];
 
-  // total transaction
-  const totalTransactions = transactions.length;
+  // total overall records
+  const totalRecords = records.length;
 
-  const totalIncomeTransactions = transactions.filter(
+  // total number of income records
+  const totalIncomeRecords = records.filter(
     (transaction) => transaction.category === "income"
   );
-  const totalIncomeNum = totalIncomeTransactions.length;
+  const totalIncomeNum = totalIncomeRecords.length;
 
-  const totalExpenseTransactions = transactions.filter(
+  //total number of expense records
+  const totalExpenseRecords = records.filter(
     (transaction) => transaction.category === "expense"
   );
-  const totalExpenseNum = totalExpenseTransactions.length;
+  const totalExpenseNum = totalExpenseRecords.length;
 
-  const totalIncomeTransactionsPercentage =
-    (totalIncomeNum / totalTransactions) * 100;
-  const totalExpenseTransactionsPercentage =
-    (totalExpenseNum / totalTransactions) * 100;
+  // derive each category's percentage
+  const totalIncomeRecordsPercentage = (totalIncomeNum / totalRecords) * 100;
+  const totalExpenseRecordsPercentage = (totalExpenseNum / totalRecords) * 100;
 
-  const totalTurnover = transactions.reduce(
+  // total overall turnover
+  const totalTurnover = records.reduce(
     (acc, transaction) => acc + transaction.amount,
     0
   );
-  const totalIncomeTurnover = transactions
+
+  // derive category vs overall turnover
+  const totalIncomeTurnover = records
     .filter((transaction) => transaction.category === "income")
     .reduce((acc, transaction) => acc + transaction.amount, 0);
-  const totalExpenseTurnover = transactions
+  const totalExpenseTurnover = records
     .filter((transaction) => transaction.category === "expense")
     .reduce((acc, transaction) => acc + transaction.amount, 0);
 
+  // derive each category's turnover percentage
   const totalIncomeTurnoverPercentage =
     (totalIncomeTurnover / totalTurnover) * 100;
   const totalExpenseTurnoverPercentage =
@@ -66,8 +71,8 @@ const DataAnalysis = () => {
     <>
       <div className="data-analysis">
         <div className="row">
-          <div className="transactions-count">
-            <h4>Total Transactions : {totalTransactions}</h4>
+          <div className="records-count">
+            <h4>Total Records : {totalRecords}</h4>
             <hr />
             <h5>Income : {totalIncomeNum}</h5>
             <h5>Expense : {totalExpenseNum}</h5>
@@ -76,17 +81,17 @@ const DataAnalysis = () => {
               <Progress
                 strokeColor="#5DD64F"
                 type="circle"
-                percent={totalIncomeTransactionsPercentage.toFixed(0)}
+                percent={totalIncomeRecordsPercentage.toFixed(0)}
               />
               <Progress
                 strokeColor="#E5572F"
                 type="circle"
-                percent={totalExpenseTransactionsPercentage.toFixed(0)}
+                percent={totalExpenseRecordsPercentage.toFixed(0)}
               />
             </div>
           </div>
 
-          <div className="transactions-count">
+          <div className="records-count">
             <h4>Total Turnover : {totalTurnover}</h4>
             <hr />
             <h5>Income : {totalIncomeTurnover}</h5>
@@ -114,7 +119,7 @@ const DataAnalysis = () => {
           <div className="category-analysis">
             <h4>Category - Income</h4>
             {categories.map((category) => {
-              const amount = transactions
+              const amount = records
                 .filter((t) => t.category === "income" && t.type === category)
                 .reduce((acc, t) => acc + t.amount, 0);
               return (
@@ -136,7 +141,7 @@ const DataAnalysis = () => {
           <div className="category-analysis">
             <h4>Category - Expenses</h4>
             {categories.map((category) => {
-              const amount = transactions
+              const amount = records
                 .filter((t) => t.category === "expense" && t.type === category)
                 .reduce((acc, t) => acc + t.amount, 0);
               return (

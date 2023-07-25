@@ -32,14 +32,16 @@ const DataTable = () => {
     return <Components.LoadSpinner />;
   }
 
+  //Open form modal and pass existing values for display
   const handleEditModalOpen = async (record) => {
     setShowEditModal(true);
     setSelectedEditItem(record);
   };
 
-  // Callback function for DeleteData.jsx. Upon data deletion, refresh the DataTable by fetching it again
-  const handleDeleteSuccess = async () => {
+  // Upon data deletion, refresh the DataTable by fetching it again
+  const handleDeleteSuccess = async (record) => {
     try {
+      await DeleteData(record);
       const data = await FetchAllData();
       setGetData(data);
     } catch (error) {
@@ -81,9 +83,7 @@ const DataTable = () => {
             />
             <DeleteFilled
               className="delete-button"
-              onClick={() => {
-                DeleteData(record, handleDeleteSuccess());
-              }}
+              onClick={() => handleDeleteSuccess(record)}
             />
           </div>
         );

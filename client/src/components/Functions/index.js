@@ -18,7 +18,13 @@ export const FetchAllData = async () => {
       return dateA - dateB; // Use '-1' for ascending, '1' for descending order
     });
 
-    return sortedData;
+    const dataWithFormattedDate = sortedData.map((item) => ({
+      ...item,
+      date: new Date(item.date).toLocaleDateString("en-CA"), // Replace 'en-CA' with your preferred locale
+    }));
+
+    // return sortedData;
+    return dataWithFormattedDate;
   } catch (error) {
     message.error("Data fetch interuppted");
   }
@@ -48,7 +54,7 @@ export const AddData = async (values, setShowAddModal) => {
   }
 };
 
-export const EditData = async (itemID, values, setShowEditModal) => {
+export const EditData = async (itemID, values) => {
   try {
     console.log(itemID);
     // const user = JSON.parse(localStorage.getItem("user"));
@@ -57,7 +63,6 @@ export const EditData = async (itemID, values, setShowEditModal) => {
       // userid: user._id,
     });
     message.success("Edited succesfully!");
-    setShowEditModal(false);
   } catch (error) {
     console.log(error);
     message.error("Failed to edit data");

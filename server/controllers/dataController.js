@@ -29,8 +29,14 @@ const deleteData = async (req, res) => {
 const editData = async (req, res) => {
   try {
     const id = req.params.id;
+    console.log("Data ID: ", id);
     const payload = req.body;
-    await recordModel.findByIdAndUpdate({ _id: id }, payload);
+    console.log("Payload received", payload);
+    const updatedRecord = await recordModel.findByIdAndUpdate(
+      { _id: id },
+      payload
+    );
+    console.log(updatedRecord);
     return res.json({ msg: "Record has been updated!" });
   } catch (error) {
     console.log(error);

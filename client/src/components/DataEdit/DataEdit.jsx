@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { UserContext } from "../../context";
 import { Modal, Form, Select, Input } from "antd";
 import { EditData } from "../Functions";
-import moment from "moment";
 import "../DataIcons/DataIcons.css";
 
 const DataEdit = ({ selectedEditItem }) => {
@@ -16,9 +15,7 @@ const DataEdit = ({ selectedEditItem }) => {
   const onFinish = async (values) => {
     try {
       const itemID = selectedEditItem._id;
-      // await EditData(itemID, values);
-      const formattedDate = moment(values.date).format("YYYY-MM-DD");
-      await EditData(itemID, { ...values, date: formattedDate });
+      await EditData(itemID, values);
 
       setShowEditModal(false);
 
@@ -31,7 +28,6 @@ const DataEdit = ({ selectedEditItem }) => {
   return (
     <>
       <Modal
-        // title={editable ? "Edit Transaction" : "Add Transection"}
         className="wrapper-modal"
         title={"Edit Transaction"}
         open={showEditModal === true}

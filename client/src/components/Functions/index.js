@@ -57,6 +57,7 @@ export const AddData = async (values, setShowAddModal) => {
 export const EditData = async (itemID, values) => {
   try {
     console.log(itemID);
+    console.log(values);
     // const user = JSON.parse(localStorage.getItem("user"));
     await axios.put(`data/editData/${itemID}`, {
       data: values,

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const recordSchema = new mongoose.Schema({
-  // userid: { type: String, required: [true, "User cannot be empty"] },
+  // id: { type: String, required: [true, "User cannot be empty"] },
   amount: { type: Number, required: true },
   type: { type: String, required: true },
   category: { type: String, required: true },

@@ -10,7 +10,15 @@ export const FetchAllData = async () => {
       // ...(timeline === "custom" && { selectedRange }),
       // type,
     });
-    return response.data;
+
+    const sortedData = response.data.sort((a, b) => {
+      // Assuming 'a.date' and 'b.date' are properties representing the date
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateA - dateB; // Use '-1' for ascending, '1' for descending order
+    });
+
+    return sortedData;
   } catch (error) {
     message.error("Data fetch interuppted");
   }

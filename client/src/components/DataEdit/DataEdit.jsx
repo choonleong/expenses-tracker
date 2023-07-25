@@ -62,7 +62,7 @@ const DataEdit = ({ selectedEditItem }) => {
               <Form.Item label="Type" name="type">
                 <Select>
                   <Select.Option value="housing">Housing</Select.Option>
-                  <Select.Option value="transporatation">
+                  <Select.Option value="transportation">
                     Transportation
                   </Select.Option>
                   <Select.Option value="food">Food</Select.Option>

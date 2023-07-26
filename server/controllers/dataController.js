@@ -29,18 +29,24 @@ const deleteData = async (req, res) => {
 const editData = async (req, res) => {
   try {
     const id = req.params.id;
-    console.log("Data ID: ", id);
     const payload = req.body;
-    console.log("Payload received", payload);
+
     const updatedRecord = await recordModel.findByIdAndUpdate(
-      { _id: id },
-      payload
+      id,
+      payload.data,
+      {
+        new: true,
+      }
     );
-    console.log(updatedRecord);
-    return res.json({ msg: "Record has been updated!" });
+
+    if (!updatedRecord) {
+      return res.status(404).json({ error: "Record not found" });
+    }
+
+    return res.json({ msg: "Record has been updated!", data: updatedRecord });
   } catch (error) {
     console.log(error);
-    res.status(500).json(error);
+    res.status(500).json({ error: "Failed to update data" });
   }
 };
 

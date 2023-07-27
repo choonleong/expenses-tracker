@@ -17,7 +17,6 @@ const TimeLine = () => {
   } = useContext(UserContext);
 
   const handleTimeLineChange = async (value) => {
-    console.log(value, selectedType);
     setTimeline(value);
 
     try {

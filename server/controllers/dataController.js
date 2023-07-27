@@ -53,7 +53,6 @@ const editData = async (req, res) => {
 const fetchAllData = async (req, res) => {
   try {
     const { timeline, selectedType } = req.body;
-    console.log(req.body);
 
     let query = {}; //expecting an object, not array
 

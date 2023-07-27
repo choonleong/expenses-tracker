@@ -5,7 +5,7 @@ const UserContext = createContext({});
 
 const UserContextProvider = ({ children }) => {
   const [type, setType] = useState("All");
-  const [timeline, setTimeline] = useState("7");
+  const [timeline, setTimeline] = useState("30");
   const [selectedRange, setSelectedRange] = useState({
     start: moment(),
     end: moment(),

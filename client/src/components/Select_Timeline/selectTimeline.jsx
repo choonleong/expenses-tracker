@@ -1,18 +1,13 @@
 import React, { useContext } from "react";
-import { DatePicker, Select } from "antd";
-
-import { useState } from "react";
-import "./selectTimeLine.css";
 import { UserContext } from "../../context";
-import moment from "moment";
+import { DatePicker, Select } from "antd";
+import "./selectTimeLine.css";
+
 const { RangePicker } = DatePicker;
 
 const TimeLine = () => {
   const { timeline, setTimeline } = useContext(UserContext);
-  const [selectedRange, setSelectedRange] = useState({
-    start: moment(),
-    end: moment(),
-  });
+  const { selectedRange, setSelectedRange } = useContext(UserContext);
 
   return (
     <>
@@ -23,6 +18,7 @@ const TimeLine = () => {
         onChange={(value) => setTimeline(value)}
         style={{ width: 180 }}
       >
+        <Select.Option value="all">All</Select.Option>
         <Select.Option value="7">7 days</Select.Option>
         <Select.Option value="30">30 days</Select.Option>
         <Select.Option value="365">365 days</Select.Option>

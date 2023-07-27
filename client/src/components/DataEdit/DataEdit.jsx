@@ -11,6 +11,7 @@ const DataEdit = ({ selectedEditItem }) => {
     selectCategory,
     setSelectCategory,
     setGetData,
+    timeline,
   } = useContext(UserContext);
 
   const handleCategoryChange = (value) => {
@@ -23,7 +24,7 @@ const DataEdit = ({ selectedEditItem }) => {
       await EditData(itemID, values);
       setShowEditModal(false);
 
-      const data = await FetchAllData();
+      const data = await FetchAllData(timeline);
       setGetData(data);
     } catch (error) {
       console.log(error);

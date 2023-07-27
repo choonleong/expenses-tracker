@@ -14,6 +14,7 @@ const DataIcons = () => {
     showAddModal,
     setShowAddModal,
     setGetData,
+    timeline,
   } = useContext(UserContext);
 
   const addNewTransaction = () => {
@@ -27,7 +28,7 @@ const DataIcons = () => {
   const onFinish = async (values) => {
     try {
       await AddData(values, setShowAddModal);
-      const data = await FetchAllData();
+      const data = await FetchAllData(timeline);
       setGetData(data);
     } catch (error) {
       console.log(error);

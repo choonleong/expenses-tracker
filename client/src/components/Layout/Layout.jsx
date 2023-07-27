@@ -30,10 +30,10 @@ const Layout = (props) => {
   return (
     <div className="wrapper-navbar">
       <div className="navbar">
-        <div>
+        <div className="title-container">
           <h1 className="title">My Expenses Tracker</h1>
         </div>
-        <div>
+        <div className="dropdown-button">
           <Dropdown overlay={menu}>
             <button className="settings-button">Settings</button>
           </Dropdown>

@@ -12,7 +12,7 @@
 }
 
 .title {
-  font-size: 30px;
+  font-size: 2em;
   color: rgba(255, 255, 255, 255);
   /* margin: 0 !important; */
   margin-left: 1em;
@@ -31,4 +31,23 @@
 
   margin-right: 2.5em;
   cursor: pointer;
+}
+
+@media screen and (max-width: 850px) {
+  .title {
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    display: block;
+    align-items: center;
+  }
+  .dropdown-button,
+  .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

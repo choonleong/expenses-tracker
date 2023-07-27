@@ -47,3 +47,14 @@
 .data-table {
   padding: 2em;
 }
+
+@media screen and (max-width: 850px) {
+  .wrapper-topbar {
+    display: block;
+    justify-content: center;
+  }
+  .wrapper-transaction-income {
+    /* display: block; */
+    justify-content: center;
+  }
+}

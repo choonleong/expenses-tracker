@@ -1,12 +1,17 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../context";
 import { Modal, Form, Select, Input } from "antd";
-import { EditData } from "../Functions";
+import { EditData, FetchAllData } from "../Functions";
 import "../DataIcons/DataIcons.css";
 
 const DataEdit = ({ selectedEditItem }) => {
-  const { showEditModal, setShowEditModal, selectCategory, setSelectCategory } =
-    useContext(UserContext);
+  const {
+    showEditModal,
+    setShowEditModal,
+    selectCategory,
+    setSelectCategory,
+    setGetData,
+  } = useContext(UserContext);
 
   const handleCategoryChange = (value) => {
     setSelectCategory(value);
@@ -16,10 +21,10 @@ const DataEdit = ({ selectedEditItem }) => {
     try {
       const itemID = selectedEditItem._id;
       await EditData(itemID, values);
-
       setShowEditModal(false);
 
-      console.log(showEditModal);
+      const data = await FetchAllData();
+      setGetData(data);
     } catch (error) {
       console.log(error);
     }

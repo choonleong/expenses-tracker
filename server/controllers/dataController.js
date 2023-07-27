@@ -18,7 +18,6 @@ const addData = async (req, res) => {
 const deleteData = async (req, res) => {
   try {
     const id = req.params.id;
-    // const id = req.body.transactionID;
     await recordModel.findOneAndDelete({ _id: id });
     return res.json({ msg: "Record has been deleted!" });
   } catch (error) {
@@ -55,7 +54,7 @@ const fetchAllData = async (req, res) => {
   try {
     const { timeline } = req.body;
 
-    let query = [];
+    let query = {}; //expecting an object, not array
 
     if (timeline !== "all") {
       query = {

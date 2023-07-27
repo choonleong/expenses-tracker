@@ -1,12 +1,14 @@
 import axios from "axios";
 import { message } from "antd";
 
-export const FetchAllData = async () => {
+export const FetchAllData = async (timeline) => {
   try {
     const user = JSON.parse(localStorage.getItem("user"));
     const response = await axios.get("data/fetchAllData", {
-      userid: user._id,
-      // timeline,
+      params: {
+        userid: user._id,
+        timeline,
+      },
       // ...(timeline === "custom" && { selectedRange }),
       // type,
     });
@@ -20,7 +22,7 @@ export const FetchAllData = async () => {
 
     const dataWithFormattedDate = sortedData.map((item) => ({
       ...item,
-      date: new Date(item.date).toLocaleDateString("en-CA"), // Replace 'en-CA' with your preferred locale
+      date: new Date(item.date).toLocaleDateString("en-CA"),
     }));
 
     // return sortedData;
@@ -56,12 +58,9 @@ export const AddData = async (values, setShowAddModal) => {
 
 export const EditData = async (itemID, values) => {
   try {
-    // console.log(itemID);
     console.log(values);
-    // const user = JSON.parse(localStorage.getItem("user"));
     await axios.put(`data/editData/${itemID}`, {
       data: values,
-      // userid: user._id,
     });
     message.success("Edited succesfully!");
   } catch (error) {

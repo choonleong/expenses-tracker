@@ -1,6 +1,7 @@
 //model imports
 const httpStatus = require("http-status");
 const recordModel = require("../models/record");
+const moment = require("moment");
 
 // controllers
 const addData = async (req, res) => {
@@ -51,6 +52,8 @@ const editData = async (req, res) => {
 };
 
 const fetchAllData = async (req, res) => {
+  console.log(req.body);
+
   try {
     const data = await recordModel.find();
     return res.json(data);

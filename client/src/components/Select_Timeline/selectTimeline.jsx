@@ -1,13 +1,25 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../context";
 import { DatePicker, Select } from "antd";
+import { FetchAllData } from "../Functions";
 import "./selectTimeLine.css";
 
 const { RangePicker } = DatePicker;
 
 const TimeLine = () => {
-  const { timeline, setTimeline } = useContext(UserContext);
-  const { selectedRange, setSelectedRange } = useContext(UserContext);
+  const { timeline, setTimeline, selectedRange, setGetData, setSelecteRange } =
+    useContext(UserContext);
+
+  const handleTimeLineChange = async (value) => {
+    setTimeline(value);
+
+    try {
+      const data = await FetchAllData(timeline);
+      setGetData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -15,7 +27,7 @@ const TimeLine = () => {
 
       <Select
         value={timeline}
-        onChange={(value) => setTimeline(value)}
+        onChange={(value) => handleTimeLineChange(value)}
         style={{ width: 180 }}
       >
         <Select.Option value="all">All</Select.Option>
@@ -29,7 +41,7 @@ const TimeLine = () => {
         <div className="date-range">
           <RangePicker
             value={selectedRange}
-            onChange={(values) => setSelectedRange(values)}
+            onChange={(values) => setSelecteRange(values)}
           />
         </div>
       )}

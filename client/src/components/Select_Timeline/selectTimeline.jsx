@@ -7,15 +7,15 @@ import "./selectTimeLine.css";
 const { RangePicker } = DatePicker;
 
 const TimeLine = () => {
-  const { timeline, setTimeline, selectedRange, setGetData, setSelecteRange } =
+  const { timeline, setTimeline, selectedRange, setGetData, setSelectedRange } =
     useContext(UserContext);
 
   const handleTimeLineChange = async (value) => {
+    console.log(value);
     setTimeline(value);
 
     try {
-      const data = await FetchAllData(timeline);
-      setGetData(data);
+      setGetData(await FetchAllData(value)); //sets the data directly instead of awaiting/fetching through variable. If variable = await(fetch), the variable will be using the old value.
     } catch (error) {
       console.log(error);
     }
@@ -41,7 +41,7 @@ const TimeLine = () => {
         <div className="date-range">
           <RangePicker
             value={selectedRange}
-            onChange={(values) => setSelecteRange(values)}
+            onChange={(values) => setSelectedRange(values)}
           />
         </div>
       )}

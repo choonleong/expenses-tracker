@@ -10,7 +10,7 @@ const {
 } = require("../controllers/dataController");
 
 //routers
-router.get("/fetchAllData", fetchAllData);
+router.post("/fetchAllData", fetchAllData);
 router.post("/addData", addData);
 router.delete("/deleteData/:id", deleteData);
 router.put("/editData/:id", editData);

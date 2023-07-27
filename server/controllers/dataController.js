@@ -52,10 +52,20 @@ const editData = async (req, res) => {
 };
 
 const fetchAllData = async (req, res) => {
-  console.log(req.body);
-
   try {
-    const data = await recordModel.find();
+    const { timeline } = req.body;
+
+    let query = [];
+
+    if (timeline !== "all") {
+      query = {
+        date: {
+          $gt: moment().subtract(Number(timeline), "d").toDate(),
+        },
+      };
+    }
+
+    const data = await recordModel.find(query);
     return res.json(data);
   } catch (error) {
     console.log(error);

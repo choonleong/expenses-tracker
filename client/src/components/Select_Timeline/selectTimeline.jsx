@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { UserContext } from "../../context";
 import { DatePicker, Select } from "antd";
 import { FetchAllData } from "../Functions";
@@ -7,19 +7,39 @@ import "./selectTimeLine.css";
 const { RangePicker } = DatePicker;
 
 const TimeLine = () => {
-  const { timeline, setTimeline, selectedRange, setGetData, setSelectedRange } =
-    useContext(UserContext);
+  const {
+    selectedType,
+    timeline,
+    setTimeline,
+    setGetData,
+    selectedRange,
+    setSelectedRange,
+  } = useContext(UserContext);
 
   const handleTimeLineChange = async (value) => {
-    console.log(value);
+    console.log(value, selectedType);
     setTimeline(value);
 
     try {
-      setGetData(await FetchAllData(value)); //sets the data directly instead of awaiting/fetching through variable. If variable = await(fetch), the variable will be using the old value.
+      setGetData(await FetchAllData(value, selectedType)); //sets the data directly instead of awaiting/fetching through variable. If variable = await(fetch), the variable will be using the old value.
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    // Perform data fetching when 'selectedType' changes
+    const fetchData = async () => {
+      try {
+        const data = await FetchAllData(timeline, selectedType);
+        setGetData(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData(); // Fetch data initially when the component mounts and whenever 'selectedType' changes
+  }, [selectedType]);
 
   return (
     <>

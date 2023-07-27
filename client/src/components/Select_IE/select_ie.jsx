@@ -3,14 +3,14 @@ import { Select } from "antd";
 import { UserContext } from "../../context";
 
 const SelectIE = () => {
-  const { type, setType } = useContext(UserContext);
+  const { selectedType, setSelectedType } = useContext(UserContext);
 
   return (
     <>
       <h5>Select Income/Expenditure</h5>
       <Select
-        value={type}
-        onChange={(value) => setType(value)}
+        value={selectedType}
+        onChange={(value) => setSelectedType(value)}
         style={{ width: 180 }}
       >
         <Select.Option value="all">All</Select.Option>

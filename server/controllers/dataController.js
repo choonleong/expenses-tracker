@@ -52,16 +52,23 @@ const editData = async (req, res) => {
 
 const fetchAllData = async (req, res) => {
   try {
-    const { timeline } = req.body;
+    const { timeline, selectedType } = req.body;
+    console.log(req.body);
 
     let query = {}; //expecting an object, not array
 
+    // Add timeline filter based on input
     if (timeline !== "all") {
       query = {
         date: {
           $gt: moment().subtract(Number(timeline), "d").toDate(),
         },
       };
+    }
+
+    // Add selectedType filter if it's not 'all'
+    if (selectedType !== "all") {
+      query.category = selectedType; // Assuming the field name in the MongoDB collection is 'type'
     }
 
     const data = await recordModel.find(query);

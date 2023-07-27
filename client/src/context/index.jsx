@@ -4,7 +4,7 @@ import moment from "moment";
 const UserContext = createContext({});
 
 const UserContextProvider = ({ children }) => {
-  const [type, setType] = useState("All");
+  const [selectedType, setSelectedType] = useState("all");
   const [timeline, setTimeline] = useState("Select timeline...");
   const [selectedRange, setSelectedRange] = useState({
     start: moment(),
@@ -41,8 +41,8 @@ const UserContextProvider = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
-        type,
-        setType,
+        selectedType,
+        setSelectedType,
         timeline,
         setTimeline,
         getData,

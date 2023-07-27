@@ -1,13 +1,13 @@
 import axios from "axios";
 import { message } from "antd";
 
-export const FetchAllData = async (timeline) => {
+export const FetchAllData = async (timeline, selectedType) => {
   try {
     const user = JSON.parse(localStorage.getItem("user"));
     const response = await axios.post("data/fetchAllData", {
       userid: user._id,
       timeline,
-
+      selectedType,
       // ...(timeline === "custom" && { selectedRange }),
       // type,
     });
